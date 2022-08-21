@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-md-8">
+        <h3>Post List</h3>
+        <div>
+            <a href="#" class="btn btn-primary" [routerLink]="['/posts/add']">Add Post</a>
+        </div>
+        <table class="table table-stiped" *ngIf="posts$|async as postData">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>title</th>
+                    <th>description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let post of postData">
+                    <td>{{post.id}}</td>
+                    <td>{{post.title}}</td>
+                    <td>{{post.description}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4">
+        <router-outlet></router-outlet>
+    </div>
+</div>
